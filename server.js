@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 client.login("NzIwMzAxMTM3MDEzNjM3MTgw.XxQx9Q.vQq3IGUZzZWZOMBPyytNjSzykqw")
-const prefix = "-"
+const prefix = "="
 
 client.on("ready", () => {
 console.log(".......HULK.......")
@@ -114,6 +114,159 @@ message.channel
 });
 
 
+client.on("message", pixelbot => {
+// itzZa1D - Codes Team.
+if (pixelbot.content.startsWith(prefix + "user")) {
+// itzZa1D - Codes Team.
+if (pixelbot.author.bot) return;
+if (!pixelbot.guild)
+return pixelbot.reply("**:x: - This Command is only done on Servers**");
+pixelbot.guild.fetchInvites().then(invites => {
+// itzZa1D - Codes Team.
+let personalInvites = invites.filter(
+i => i.inviter.id === pixelbot.author.id
+);
+let inviteCount = personalInvites.reduce((p, v) => v.uses + p, 0);
+var roles = pixelbot.member.roles
+.map(roles => `**__${roles.name}__ |**`)
+.join(` `);
+let pixeluser = new Discord.RichEmbed() // itzZa1D - Codes Team.
+.setColor("#00000")
+.setTitle(" :beginner: :heartpulse: | Use r Info") // itzZa1D - Codes Team.
+.setAuthor(pixelbot.author.username, pixelbot.author.avatarURL)
+.addField("**✽ Name :** ", pixelbot.author.username, true)
+.addField("**✽ Tag :** ", pixelbot.author.discriminator, true)
+.addField("**✽ ID :** ", pixelbot.author.id, true) // itzZa1D - Codes Team.
+.addField(
+"**✽ Joined At :** ",
+moment(pixelbot.joinedAt).format("D/M/YYYY h:mm a "),
+true
+)
+.addField(
+"**✽ Created At :** ",
+moment(pixelbot.joinedAt).format("D/M/YYYY h:mm a "),
+true
+)
+.addField("**✽ Total invites :** ", inviteCount, true)
+.setTimestamp(); // itzZa1D - Codes Team.
+
+pixelbot.channel.sendEmbed(pixeluser).then(c => {}); // itzZa1D - Codes Team.
+});
+}
+}); // itzZa1D - Codes Team.
+
+
+
+
+
+
+client.on("message", message => {
+if (message.content.startsWith(prefix + "server")) {
+if (!message.channel.guild)
+return message.channel.send(` | This Command is used only in servers!`);
+const millis = new Date().getTime() - message.guild.createdAt.getTime();
+const now = new Date();
+const verificationLevels = ["None", "Low", "Medium", "Insane", "Extreme"];
+const days = millis / 1000 / 60 / 60 / 24;
+var embed = new Discord.RichEmbed()
+.setAuthor(message.guild.name, message.guild.iconURL)
+.addField(":id:✽** Server ID:**", `» ${message.guild.id} `, true)
+.addField(
+":calendar:✽** Created On**",
+`» ${message.guild.createdAt.toLocaleString()}`,
+true
+)
+.addField(":crown: ✽**Server Owner**", `**${message.guild.owner}**`, true)
+.addField(
+`✽** Members ** [${message.guild.members.size}]`,
+`**${
+message.guild.members.filter(c => c.presence.status !== "offline")
+.size
+}** **Online**`,
+true
+)
+.addField(
+":speech_balloon:✽** Channels **",
+`» **${message.guild.channels.filter(m => m.type === "text").size}**` +
+" TexT | VoicE " +
+`**${message.guild.channels.filter(m => m.type === "voice").size}** `,
+true
+)
+.addField(":earth_africa:✽** Region **", ` ${message.guild.region}`, true)
+.setImage(
+""
+)
+
+.setColor("#000000");
+message.channel.sendEmbed(embed);
+}
+});
+
+client.on("message", async msg => {
+if (msg.channel.type === "dm") return;
+if (msg.author.bot) return;
+if (msg.content.startsWith(prefix + "setstats")) {
+if (!msg.guild.member(msg.author).hasPermission("MANAGE_CHANNELS"))
+return msg.reply("❌ **go play minecraft**");
+if (!msg.guild.member(client.user).hasPermission(["MANAGE_CHANNELS"]))
+return msg.reply("❌ **البوت لا يمتلك صلاحية**");
+var ggg = msg.guild.createChannel("SERVER STATS", "category").then(kk => {
+var ccc = msg.guild.createChannel("SERVER STATS", "voice").then(al => {
+var aa = msg.guild.createChannel("SERVER STATS", "voice").then(alp => {
+var aaa = msg.guild
+.createChannel("SERVER STATS", "voice")
+.then(alph => {
+al.setParent(kk);
+alp.setParent(kk);
+alph.setParent(kk);
+
+al.overwritePermissions(msg.guild.id, {
+CONNECT: false,
+SPEAK: false
+});
+alp.overwritePermissions(msg.guild.id, {
+CONNECT: false,
+SPEAK: false
+});
+alph.overwritePermissions(msg.guild.id, {
+CONNECT: false,
+SPEAK: false
+});
+setInterval(() => {
+var currentTime = new Date(),
+hours = currentTime.getHours() + 3,
+minutes = currentTime.getMinutes(),
+Seconds = currentTime.getSeconds(),
+Year = currentTime.getFullYear(),
+Month = currentTime.getMonth() + 1,
+Dat = currentTime.getDate();
+if (minutes < 10) {
+minutes = "0" + minutes;
+}
+var suffix = "AM";
+if (hours >= 12) {
+suffix = "PM";
+hours = hours - 12;
+}
+if (hours == 0) {
+hours = 12;
+}
+al.setName(
+`Voice Online :[ ${
+msg.guild.members.filter(m => m.voiceChannel).size
+} ]`
+);
+alp.setName(
+`Time :[${hours} : ${minutes} : ${Seconds} ${suffix}]`
+);
+alph.setName(`[ Date : [${Year} - ${Month} - ${Dat} ]`);
+}, 1000);
+});
+});
+});
+});
+}
+});
 
 
 
