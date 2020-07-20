@@ -1,79 +1,151 @@
-const Discord = require("discord.js");
+const Discord = require('discord.js');
 const client = new Discord.Client();
+client.login("NzIwMzAxMTM3MDEzNjM3MTgw.XxQx9Q.vQq3IGUZzZWZOMBPyytNjSzykqw")
+const prefix = "-"
 
-client.on("ready", async () => {
-console.log(`${client.user.tag}!`);
-console.log(`Hay ${client.users.silze} usuarios.`);
-client.user.setGame(`BY HAMA`);
+client.on("ready", () => {
+console.log(".......HULK.......")
+}
+)
+
+
+client.on('ready', () => {
+console.log(`Logged in as ${client.user.tag}!`);
+client.user.setGame(`OWNER BOT |❗HAMA`,"http://twitch.tv/S-F")
+console.log('')
+console.log('')
+console.log('╔[═════════════════════════════════════════════════════════════════]╗')
+console.log(`[Start] ${new Date()}`);
+console.log('╚[═════════════════════════════════════════════════════════════════]╝')
+console.log('')
+console.log('╔[════════════════════════════════════]╗');
+console.log(`Logged in as * [ " ${client.user.username} " ]`);
+console.log('')
+console.log('information:')
+console.log('')
+console.log(`servers! [ " ${client.guilds.size} " ]`);
+console.log(`Users! [ " ${client.users.size} " ]`);
+console.log(`channels! [ " ${client.channels.size} " ]`);
+console.log('╚[════════════════════════════════════]╝')
+console.log('')
+console.log('╔[════════════]╗')
+console.log(' Bot Is Online')
+console.log('╚[════════════]╝')
+console.log('')
+console.log('')
 });
 
 
+const moment = require('moment');
+
 client.on("guildMemberAdd", member => {
-let memberavatar = member.user.avatarURL;
-let embed = new Discord.RichEmbed()
-.setColor("RANDOM")
-.setThumbnail(memberavatar)
-.addField(":bust_in_silhouette: | name : ", `${member}`)
-.addField(":microphone2: | Welcome!", `Welcome to the server, ${member}`)
-.addField(":id: | User :", "**[" + `${member.id}` + "]**")
+let welcomer = member.guild.channels.find(
+channel => channel.id === "722082389928574986"/////// id chanali welcom lera dani.ok dlm
+);
+if (!welcomer) return;
+if (welcomer) {
+moment.locale('en-ly');
+var h = member.user;
+let norelden = new Discord.RichEmbed()
+.setColor('RANDOM')
+.setThumbnail(h.avatarURL)
+.setAuthor(h.username, h.avatarURL)
+.setTitle('🔹WELCOME🔹')
+.setDescription('🔸بەخێریبێی بۆ سێرڤەرەکەم بەهیوای کاتێکی خۆش🔸')
+.addField(" تۆ کەسی ژمارە :-", member.guild.memberCount + "ی")
+.addField(':🔻کاتی دانانی ئەکاونتی دیسکۆرد🔻', `${moment(member.user.createdAt).format('D/M/YYYY h:mm a')} **\n** \`${moment(member.user.createdAt).fromNow()}\``, true)
+.addField(': 🔻کاتی هاتنە ناوەوەی سێرڤەر🔻', `${moment(member.joinedAt).format('D/M/YYYY h:mm a')} \n\`\`${moment(member.joinedAt).startOf(' ').fromNow()}\`\``, true)
+.setImage("https://media.discordapp.net/attachments/547147462318620672/687508796330999814/image0-2.gif")////lera rasmek ba dle xot dani
+.setFooter(`${h.tag}`, "https://cdn.discordapp.com/attachments/721451303976304711/734862838929031168/PicsArt_06-14-09.05.36.png")//////lera rasmi sar server dani
+
+welcomer.send({ embed: norelden });
+
+
+}
+});
+
+/////info bot by hama//////
+client.on("message", zaid => {
+if (zaid.content === "=bot") {
+const bot = new Discord.RichEmbed()
+.setAuthor(client.user.username, client.user.avatarURL)
+.setColor("#00000")
 .addField(
-":family_mwgb: | Your are the member",
-`${member.guild.memberCount}`
+"**____خێرای بۆتەکە____**: ",
+` ${Date.now() - zaid.createdTimestamp}` + "__ __ ",
+true
 )
-.addField("Name", `<@` + `${member.id}` + `>`, true)
-.addField("Server", `${member.guild.name}`, true)
-.setFooter(`**${member.guild.name}**`)
-.setTimestamp();
+.addField("**__سێرڤەرەکان__** : ", `→ ${client.guilds.size}`, true)
+.addField("**__چەناڵەکەن__** : ", `→ ${client.channels.size} `, true)
+.addField("**__میمبەرەکان__** : ", `→ ${client.users.size} `, true)
+.addField("**__ناوی بۆتەکە__** : ", `→ ${client.user.tag} `, true)
+.addField("**دروست کەری بۆتەکە** : ", `→ <@607022732626100234>`,)
 
-member.send(embed);
-});
-
-
-
-client.on("guildMemberAdd", member => {
-let channel = member.guild.channels.find("name", "🤚🏻│𝚆𝙴𝙻𝙲𝙾𝙼𝙴");
-let memberavatar = member.user.avatarURL;
-if (!channel) return;
-let embed = new Discord.RichEmbed()
-.setColor("RANDOM")
-.setThumbnail(memberavatar)
-.addField("> :bust_in_silhouette: | ناوی مێمبەر : ", `${member}`)
-.addField("> ::wave::hibiscus:|یەخوا بەخێر بێی دڵ دڵ", `, `)
-.addField("> :id:| بەکارھێنەر :", "**[" + `${member.id}` + "]**")
-.addField("> :family_mwgb:| تۆ کەسی ژمارە", `${member.guild.memberCount}`)
-.addField("ناوی سێرڤەر:rainbow:⚡️", `${member.guild.name}`, true)
-.addField("ژماری میمبەرەکان", `${member.guild.memberCount}` + "کەس")
-.setTimestamp("کاتی دروست کردنی ئەکاونتی دیسکۆرد", member.guild.createdAt)
 .setImage(
-"https://cdn.discordapp.com/attachments/697877187877142728/698103369579102238/PicsArt_04-10-11.05.18.png"
-)
-.setFooter(`**${member.guild.name}**`)
-.setTimestamp();
-
-channel.sendEmbed(embed);
-});
-
-client.on("guildMemberRemove", member => {
-let channel = member.guild.channels.find("name", "🚶🏻│𝐋𝐄𝐅𝐓𝐒");
-let memberavatar = member.user.avatarURL;
-if (!channel) return;
-let embed = new Discord.RichEmbed()
-.setColor("RANDOM")
-.setThumbnail(memberavatar)
-.addField("ناوی مێمبەر:", `${member}`)
-.addField("لێفتی کرد لە سێرڤەر")
-.addField("هاهاهاهاهاه ملی خۆی شکاند😂")
-.addField("ژمارەی مێمبەری سێرڤەر", `${member.guild.memberCount}` + " کەس")
-.setImage(
-"https://cdn.discordapp.com/attachments/696012672180813894/696074057812017202/2d694399-224b-4648-b034-03f3920c878b.png"
-)
-.setFooter(
-`==== **${member.guild.name}====`,
 ""
 )
-.setTimestamp();
-
-channel.sendEmbed(embed);
+.setFooter(zaid.author.username, zaid.author.avatarURL);
+zaid.channel.send(bot);
+}
 });
 
-client.login("NzIwMzAxMTM3MDEzNjM3MTgw.XxX2RA.Dk_z4jYeGgK5OeVHL9HS5fC2rkY");
+
+client.on("message", message => {
+if (message.author.bot) return;
+
+let args = message.content.split(" ");
+
+let command = args[0];
+
+let messagecount = args[1];
+
+if (command == prefix + "clear") {
+if (!message.member.hasPermission("MANAGE_MESSAGES")) {
+message.channel.send("يجب ان تمتلك خاصية `MANAGE_MESSAGES` ");
+} else if (!messagecount) {
+message.channel.send("**قم بإدراج عدد الرسائل المراد حذفها**");
+} else {
+message.channel.bulkDelete(messagecount);
+message.channel
+.send("**رسالة `" + messagecount + "` لقد تم حذف**")
+.then(mes => mes.delete(3000));
+}
+}
+});
+
+
+
+
+
+
+
+client.on("message", message => {
+if (message.content.startsWith(prefix + "=send")) {
+if (!message.member.hasPermission("ADMINISTRATOR")) return;
+let args = message.content.split(" ").slice(1);
+var argresult = args.join(" ");
+message.guild.members
+.filter(m => m.presence.status !== "ofline")
+.forEach(m => {
+m.send(`${argresult}\n ${m}`);
+});
+message.channel.send(
+`\`${
+message.guild.members.filter(m => m.presence.status !== "online").size
+}\` : نامەکەت نێردرا`
+);
+message.delete();
+}
+});
+
+client.on("ready", () => {
+console.log(`----------------`);
+console.log(`Desert Bot- Script By : HAMA`);
+console.log(`----------------`);
+console.log(
+`ON ${client.guilds.size} Servers ' Script By : HAMA' `
+);
+console.log(`----------------`);
+console.log(`Logged in as ${client.user.tag}!`);
+
+});
