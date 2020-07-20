@@ -31,7 +31,7 @@ member.send(embed);
 
 
 client.on("guildMemberAdd", member => {
-let channel = member.guild.channels.find("name", "┊𝚆𝙴𝙻𝙲𝙾𝙼𝙴");
+let channel = member.guild.channels.find("name", "🤚🏻│𝚆𝙴𝙻𝙲𝙾𝙼𝙴");
 let memberavatar = member.user.avatarURL;
 if (!channel) return;
 let embed = new Discord.RichEmbed()
@@ -76,4 +76,4 @@ let embed = new Discord.RichEmbed()
 channel.sendEmbed(embed);
 });
 
-client.login("NzM0MTEzMjExNDYwMDkxOTE0.XxXTdQ.rwI4NdYoPWPJofoF-J8SHh5jZ2c");
+client.login("NzIwMzAxMTM3MDEzNjM3MTgw.XxX2RA.Dk_z4jYeGgK5OeVHL9HS5fC2rkY");
