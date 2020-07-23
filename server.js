@@ -64,6 +64,31 @@ welcomer.send({ embed: norelden });
 }
 });
 
+
+client.on("guildMemberRemove", member => {
+let channel = member.guild.channels.find("name", "🚶🏻│𝙻𝙴𝙵𝚃-𝚂");
+let memberavatar = member.user.avatarURL;
+if (!channel) return;
+let embed = new Discord.RichEmbed()
+.setColor("RANDOM")
+.setThumbnail(memberavatar)
+.addField("ناوی مێمبەر:", `${member}`)
+.addField("لێفتی کرد لە سێرڤەر")
+.addField("هاهاهاهاهاه ملی خۆی شکاند😂")
+.addField("ژمارەی مێمبەری سێرڤەر", `${member.guild.memberCount}` + " کەس")
+.setImage(
+"https://cdn.discordapp.com/attachments/696012672180813894/696074057812017202/2d694399-224b-4648-b034-03f3920c878b.png"
+)
+.setFooter(
+`==== **${member.guild.name}====`,
+""
+)
+.setTimestamp();
+
+channel.sendEmbed(embed);
+});
+
+
 /////info bot by hama//////
 client.on("message", zaid => {
 if (zaid.content === "=bot") {
