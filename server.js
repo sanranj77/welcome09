@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-client.login("NzIwMzAxMTM3MDEzNjM3MTgw.XxQx9Q.vQq3IGUZzZWZOMBPyytNjSzykqw")
+client.login("NzIwMzAxMTM3MDEzNjM3MTgw.XuD-tQ.GxGeeDHFwbwPk6G3Xrv_u_6NTVU")
 const prefix = "="
 
 client.on("ready", () => {
