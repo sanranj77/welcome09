@@ -7,11 +7,28 @@ client.on("ready", () => {
 console.log(".......HULK.......")
 }
 )
+client.on("ready", () => {
+console.log(
+`Online In Servers : ${client.guilds.size} | Users : ${client.users.size}`
+);
+let statuses = [
+`Servers: ${client.guilds.size} | Users: ${client.users.size}`,
+`LND UP`,
+`𝗕𝗬 𝗛𝗔𝗠𝗔`,
+`جەژنتان پیرۆز❤`,
+];
+setInterval(function() {
+let STREAMING = statuses[Math.floor(Math.random() * statuses.length)];
+client.user.setActivity(STREAMING, {
+type: "PLAYING",
+url: "https://www.twitch.tv/faith"
+});
+}, 3000);
+});
 
 
 client.on('ready', () => {
 console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`OWNER BOT |❗HAMA`,"http://twitch.tv/S-F")
 console.log('')
 console.log('')
 console.log('╔[═════════════════════════════════════════════════════════════════]╗')
