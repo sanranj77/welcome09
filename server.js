@@ -1,16 +1,12 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-client.login("NzIwMzAxMTM3MDEzNjM3MTgw.XuD-tQ.4Lczff4-hhmHO9CrjWSiSDGMOL4")
-const prefix = "="
+const invites = {};
+const wait = require("util").promisify(setTimeout);
+const moment = require("moment"); 
+const fs = require("fs");
+var prefix = "=";
 
-client.on("ready", () => {
-console.log(".......HULK.......")
-}
-)
-client.on("ready", () => {
-console.log(
-`Online In Servers : ${client.guilds.size} | Users : ${client.users.size}`
-);
+
 
 
 client.on('ready', () => {
@@ -39,7 +35,6 @@ console.log('')
 });
 
 
-const moment = require('moment');
 
 client.on("guildMemberAdd", member => {
 let welcomer = member.guild.channels.find(
@@ -300,6 +295,8 @@ alph.setName(`[ Date : [${Year} - ${Month} - ${Dat} ]`);
 
 
 
+
+
 client.on("message", message => {
 if (message.content.startsWith(prefix + "=send")) {
 if (!message.member.hasPermission("ADMINISTRATOR")) return;
@@ -330,3 +327,9 @@ console.log(`----------------`);
 console.log(`Logged in as ${client.user.tag}!`);
 
 });
+
+
+
+
+
+client.login("NzIwMzAxMTM3MDEzNjM3MTgw.XuD-tQ.4Lczff4-hhmHO9CrjWSiSDGMOL4")
