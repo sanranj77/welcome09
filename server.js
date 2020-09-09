@@ -230,26 +230,6 @@ message.channel.sendEmbed(embed);
 
 
 
-
-client.on("message", message => {
-if (message.content.startsWith(prefix + "=send")) {
-if (!message.member.hasPermission("ADMINISTRATOR")) return;
-let args = message.content.split(" ").slice(1);
-var argresult = args.join(" ");
-message.guild.members
-.filter(m => m.presence.status !== "ofline")
-.forEach(m => {
-m.send(`${argresult}\n ${m}`);
-});
-message.channel.send(
-`\`${
-message.guild.members.filter(m => m.presence.status !== "online").size
-}\` : نامەکەت نێردرا`
-);
-message.delete();
-}
-});
-
 client.on("ready", () => {
 console.log(`----------------`);
 console.log(`Desert Bot- Script By : HAMA`);
